@@ -17,11 +17,15 @@ def generate_random_ads_task(size):
 
         # Queue metadata fetvhing
         metadata = fetch_metadata_task(destination_url)
+        if metadata['title'] == '':
+            headline = str(''.join(random.choices(string.ascii_lowercase, k = 20))) + ' Ad'
+        else:
+            headline = metadata['title']
         generated_ads.append({
                 "name": "Ad no " + str(''.join(random.choices(string.digits, k = 2))),
                 "type": ad_type,
                 "content_url" : metadata['thumbnail_url'],
-                "headline" : str(''.join(random.choices(string.ascii_lowercase, k = 20))) + ' Ad',
+                "headline" : headline,
                 "primary_text" : str(''.join(random.choices(string.ascii_lowercase, k = 100))),
                 "destination_url" : destination_url,
                 "metadata" : metadata,
@@ -39,7 +43,7 @@ def fetch_metadata_task(url):
     if req_metadata.status_code == 200:
         metadata = req_metadata.json()
     else:
-        metadata = { 'thumbnail_url': ''}
+        metadata = { 'thumbnail_url': '', 'title': '', 'author_name': '', 'author_url': ''}
     return metadata
 
 

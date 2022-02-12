@@ -25,16 +25,34 @@ def is_valid_imgur_url(url):
 Sample Valid data
 [{
     "destination_url": "https://imgur.com/gallery/YZ1yC5a",
-    "headline": "ikaqvdgtuhlhynbtgztf Ad",
+    "headline": "Imgur Ad",
     "name": "Ad no 02",
-    "primary_text": "yvxjvmjwkctbgzkjxnogrnrxzeepxzetttzxgotkvsjhgldbcjbrherlxvehuvxiztfslqeatveieqbqpcgxxngqajikinrlwbtc",
+    "primary_text": "Some random image meme",
     "type": "IMAGE_AD"
 },
 {
-    "destination_url": "https://www.youtube.com/watch?v=O3-Jiejdr7E",
-    "headline": "ikaqvdgtuhlhynbtgztf Ad",
+    "destination_url": "https://www.youtube.com/watch?v=8sjm7eeat-4",
+    "headline": "Calculated or Random Ad",
     "name": "Ad no 52",
-    "primary_text": "yvxjvmjwkctbgzkjxnogrnrxzeepxzetttzxgotkvsjhgldbcjbrherlxvehuvxiztfslqeatveieqbqpcgxxngqajikinrlwbtc",
+    "primary_text": "Dota Channel",
+    "type": "VIDEO_AD"
+},
+{
+    "destination_url": "https://www.youtube.com/watch?v=3Efm5rdzJ-E",
+    "headline": "Calculated or Random Ad",
+    "name": "Ad no 58",
+    "type": "VIDEO_AD"
+},
+{
+    "destination_url": "https://www.youtube.com/watch?v=vRhhS6BnLSY",
+    "headline": "Calculated or Random Ad",
+    "name": "Ad no 55",
+    "type": "VIDEO_AD"
+},
+{
+    "destination_url": "https://www.youtube.com/watch?v=zUb0pAN_uNE",
+    "headline": "Calculated or Random Ad",
+    "name": "Ad no 54",
     "type": "VIDEO_AD"
 }]
 '''

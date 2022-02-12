@@ -4,6 +4,7 @@ from ..helpers import is_valid_youtube_url, is_ad_data_valid
 from .. import db
 import datetime, json, traceback
 from bson.json_util import loads, dumps
+import time
 
 ad = Blueprint(name="ad", import_name=__name__)
 
@@ -13,12 +14,18 @@ def create_ad(data):
     for ad_data in data:
         if is_ad_data_valid:
             datetime_val = str(datetime.datetime.now())
-
+            print(ad_data)
             metadata = fetch_metadata_task(ad_data['destination_url'])
+
             ad_data['metadata'] = metadata
             ad_data['content_url'] = metadata['thumbnail_url']
             ad_data['created_at'] = datetime_val
             ad_data['updated_at'] = datetime_val
+            if 'headline' not in ad_data.keys() or ad_data['headline'] == '':
+                headline = metadata['title']
+            if 'primary_text' not in ad_data.keys() or ad_data['primary_text'] == '':
+                ad_data['primary_text'] = metadata['author_name'] + ' ' + metadata['author_url']
+
             valid_data.append(ad_data)
     return db.ad.insert_many(valid_data)
 
@@ -59,6 +66,8 @@ def index():
     print("DEBUG: Retrieved Ads - count ", len(ads))
 
     output = {"message": "Retrieve all Ads", "result": ads, "count": len(ads)}
+    # Adding manual sleep to visualize beautiful loading
+    # time.sleep(2)
     return jsonify(output)
 
 # UPDATE
