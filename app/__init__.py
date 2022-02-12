@@ -2,11 +2,13 @@ from celery import Celery
 from flask import Flask, jsonify, request, Blueprint
 from pymongo import MongoClient
 from flask_caching import Cache
+from flask_cors import CORS
 
 from .constants import *
 
 
 app = Flask(__name__)
+CORS(app)
 
 app.config['CELERY_BROKER_URL'] = CELERY_BROKER_URL
 app.config['CELERY_RESULT_BACKEND'] = CELERY_RESULT_BACKEND

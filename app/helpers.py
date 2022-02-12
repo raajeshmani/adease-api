@@ -35,7 +35,7 @@ Sample Valid data
     "headline": "ikaqvdgtuhlhynbtgztf Ad",
     "name": "Ad no 52",
     "primary_text": "yvxjvmjwkctbgzkjxnogrnrxzeepxzetttzxgotkvsjhgldbcjbrherlxvehuvxiztfslqeatveieqbqpcgxxngqajikinrlwbtc",
-    "type": "IMAGE_AD"
+    "type": "VIDEO_AD"
 }]
 '''
 def is_ad_data_valid(data):

@@ -34,6 +34,7 @@ def generate_random_ads_task(size):
 @celery.task(name='app.tasks.fetch_metadata')
 def fetch_metadata_task(url):
     #! TODO - Find Imgur metadata fetch url
+    # https://api.imgur.com/post/v1/posts/kkBc2Di/meta?client_id=546c25a59c58ad7&include=post,user,accolades
     req_metadata = requests.get("https://youtube.com/oembed?url=" + url + "&format=json")
     if req_metadata.status_code == 200:
         metadata = req_metadata.json()
